@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://c4cufe6ywo3yk"]
+
+[ext_resource type="Script" uid="uid://dqgplyuk2xh8x" path="res://scripts/game_manager.gd" id="1_5mhml"]
+[ext_resource type="PackedScene" uid="uid://07vj8run8tm1" path="res://scenes/level2(map).tscn" id="2_rupth"]
+[ext_resource type="PackedScene" uid="uid://cubmgkipanh3l" path="res://scenes/player.tscn" id="3_6qt4k"]
+[ext_resource type="PackedScene" uid="uid://x3xdc4rkedl1" path="res://scenes/goblin.tscn" id="4_fh4ka"]
+[ext_resource type="PackedScene" uid="uid://de708y4pfgbf7" path="res://scenes/slime.tscn" id="5_qewby"]
+[ext_resource type="PackedScene" uid="uid://g78b88lwbsfg" path="res://scenes/coin.tscn" id="6_bradm"]
+[ext_resource type="PackedScene" uid="uid://c0jwreuq756ul" path="res://scenes/kill_zone.tscn" id="7_got4s"]
+[ext_resource type="PackedScene" uid="uid://brtgsgr25expa" path="res://scenes/GoalZone.tscn" id="8_e40mx"]
+[ext_resource type="FontFile" uid="uid://husgoue6e11l" path="res://assets/PixelOperator8-Bold.ttf" id="9_rupth"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ep0u"]
+distance = -53.0
+
+[node name="Node2D" type="Node2D" unique_id=2053365567]
+
+[node name="GameManager" type="Node2D" parent="." unique_id=1170747007]
+unique_name_in_owner = true
+script = ExtResource("1_5mhml")
+
+[node name="TileMapLayer" parent="." unique_id=374782512 instance=ExtResource("2_rupth")]
+
+[node name="CharacterBody2D" parent="." unique_id=1746243162 instance=ExtResource("3_6qt4k")]
+position = Vector2(-95, -28)
+
+[node name="Goblin" parent="." unique_id=1204442965 instance=ExtResource("4_fh4ka")]
+position = Vector2(42, -28)
+
+[node name="Slime" parent="." unique_id=584172807 instance=ExtResource("5_qewby")]
+position = Vector2(928, -30)
+
+[node name="Goblin2" parent="." unique_id=1093527305 instance=ExtResource("4_fh4ka")]
+position = Vector2(376, -30)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1990060030]
+
+[node name="Area2D" parent="Node2D" unique_id=483388369 instance=ExtResource("6_bradm")]
+position = Vector2(107, -28)
+
+[node name="Area2D2" parent="Node2D" unique_id=743725982 instance=ExtResource("6_bradm")]
+position = Vector2(201, -29)
+
+[node name="Area2D3" parent="Node2D" unique_id=746399029 instance=ExtResource("6_bradm")]
+position = Vector2(164, -104)
+
+[node name="Area2D4" parent="Node2D" unique_id=1872021503 instance=ExtResource("6_bradm")]
+position = Vector2(238, -105)
+
+[node name="Area2D5" parent="Node2D" unique_id=1349815315 instance=ExtResource("6_bradm")]
+position = Vector2(483, -25)
+
+[node name="Area2D6" parent="Node2D" unique_id=1070062589 instance=ExtResource("6_bradm")]
+position = Vector2(553, -24)
+
+[node name="Area2D7" parent="Node2D" unique_id=289248863 instance=ExtResource("6_bradm")]
+position = Vector2(629, -86)
+
+[node name="Area2D8" parent="Node2D" unique_id=2022133344 instance=ExtResource("6_bradm")]
+position = Vector2(643, -86)
+
+[node name="Area2D9" parent="Node2D" unique_id=1795348282 instance=ExtResource("6_bradm")]
+position = Vector2(887, -29)
+
+[node name="Area2D10" parent="Node2D" unique_id=1263876862 instance=ExtResource("6_bradm")]
+position = Vector2(1005, -28)
+
+[node name="Area2D11" parent="Node2D" unique_id=1113948040 instance=ExtResource("6_bradm")]
+position = Vector2(1068, -103)
+
+[node name="Area2D12" parent="Node2D" unique_id=1171526214 instance=ExtResource("6_bradm")]
+position = Vector2(1156, -105)
+
+[node name="Area2D13" parent="Node2D" unique_id=1382768398 instance=ExtResource("6_bradm")]
+position = Vector2(1541, -29)
+
+[node name="Area2D14" parent="Node2D" unique_id=456449564 instance=ExtResource("6_bradm")]
+position = Vector2(1740, -29)
+
+[node name="Area2D15" parent="Node2D" unique_id=430563104 instance=ExtResource("6_bradm")]
+position = Vector2(1856, -26)
+
+[node name="KillZone" parent="." unique_id=1472228893 instance=ExtResource("7_got4s")]
+position = Vector2(-765, 71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=264928829]
+position = Vector2(-2, 0)
+shape = SubResource("WorldBoundaryShape2D_6ep0u")
+
+[node name="GoalZone" parent="." unique_id=481766366 instance=ExtResource("8_e40mx")]
+position = Vector2(1849, -38)
+
+[node name="Label" type="Label" parent="." unique_id=1362770017]
+offset_left = 1416.0
+offset_top = -243.0
+offset_right = 2008.0
+offset_bottom = -174.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_rupth")
+theme_override_font_sizes/font_size = 20
+text = "Congrats! You finished the game!!"

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bfhg6b0k3ydyr"]
+
+[ext_resource type="Script" uid="uid://dqgplyuk2xh8x" path="res://scripts/game_manager.gd" id="1_6ep0u"]
+[ext_resource type="PackedScene" uid="uid://cqpbabliviosf" path="res://scenes/level1(map).tscn" id="2_hrcei"]
+[ext_resource type="PackedScene" uid="uid://cubmgkipanh3l" path="res://scenes/player.tscn" id="3_xa7n4"]
+[ext_resource type="PackedScene" uid="uid://x3xdc4rkedl1" path="res://scenes/goblin.tscn" id="4_bo4dx"]
+[ext_resource type="PackedScene" uid="uid://de708y4pfgbf7" path="res://scenes/slime.tscn" id="5_76toy"]
+[ext_resource type="PackedScene" uid="uid://c0jwreuq756ul" path="res://scenes/kill_zone.tscn" id="6_8g4ke"]
+[ext_resource type="PackedScene" uid="uid://g78b88lwbsfg" path="res://scenes/coin.tscn" id="7_56gwk"]
+[ext_resource type="PackedScene" uid="uid://brtgsgr25expa" path="res://scenes/GoalZone.tscn" id="8_xa7n4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xqs2"]
+distance = -53.0
+
+[node name="Node2D" type="Node2D" unique_id=706352364]
+
+[node name="GameManager" type="Node2D" parent="." unique_id=1197786916]
+unique_name_in_owner = true
+script = ExtResource("1_6ep0u")
+
+[node name="TileMapLayer" parent="." unique_id=554539079 instance=ExtResource("2_hrcei")]
+
+[node name="Player" parent="." unique_id=1746243162 instance=ExtResource("3_xa7n4")]
+position = Vector2(-724, -86)
+
+[node name="Slime" parent="." unique_id=584172807 instance=ExtResource("5_76toy")]
+position = Vector2(-543, -86)
+
+[node name="Goblin" parent="." unique_id=1204442965 instance=ExtResource("4_bo4dx")]
+position = Vector2(148, -83)
+
+[node name="KillZone" parent="." unique_id=1472228893 instance=ExtResource("6_8g4ke")]
+position = Vector2(-765, 71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1755336221]
+position = Vector2(-2, 0)
+shape = SubResource("WorldBoundaryShape2D_0xqs2")
+
+[node name="Coins" type="Node2D" parent="." unique_id=44321365]
+
+[node name="Area2D" parent="Coins" unique_id=483388369 instance=ExtResource("7_56gwk")]
+position = Vector2(-647, -84)
+
+[node name="Area2D2" parent="Coins" unique_id=1685658619 instance=ExtResource("7_56gwk")]
+position = Vector2(-607, -86)
+
+[node name="Area2D3" parent="Coins" unique_id=588739699 instance=ExtResource("7_56gwk")]
+position = Vector2(-249, -81)
+
+[node name="Area2D4" parent="Coins" unique_id=1520347231 instance=ExtResource("7_56gwk")]
+position = Vector2(-212, -80)
+
+[node name="Area2D6" parent="Coins" unique_id=1632708454 instance=ExtResource("7_56gwk")]
+position = Vector2(-3, -130)
+
+[node name="Area2D7" parent="Coins" unique_id=1908728585 instance=ExtResource("7_56gwk")]
+position = Vector2(210, -81)
+
+[node name="Area2D8" parent="Coins" unique_id=284213939 instance=ExtResource("7_56gwk")]
+position = Vector2(827, -128)
+
+[node name="Area2D9" parent="Coins" unique_id=367305399 instance=ExtResource("7_56gwk")]
+position = Vector2(846, -130)
+
+[node name="Area2D10" parent="Coins" unique_id=321839170 instance=ExtResource("7_56gwk")]
+position = Vector2(336, -80)
+
+[node name="Area2D11" parent="Coins" unique_id=354015457 instance=ExtResource("7_56gwk")]
+position = Vector2(643, -80)
+
+[node name="Area2D12" parent="Coins" unique_id=729189000 instance=ExtResource("7_56gwk")]
+position = Vector2(535, -78)
+
+[node name="Area2D5" parent="Coins" unique_id=763555638 instance=ExtResource("7_56gwk")]
+position = Vector2(-58, -128)
+
+[node name="GoalZone" parent="." unique_id=481766366 instance=ExtResource("8_xa7n4")]
+position = Vector2(1311, -78)

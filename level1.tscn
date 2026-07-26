@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cfr8sd8tnbmai"]
+
+[ext_resource type="Script" uid="uid://dqgplyuk2xh8x" path="res://scripts/game_manager.gd" id="1_bbk5w"]
+[ext_resource type="PackedScene" uid="uid://crtayt1xxq7b3" path="res://scenes/ground.tscn" id="1_wwpf4"]
+[ext_resource type="PackedScene" uid="uid://cubmgkipanh3l" path="res://scenes/player.tscn" id="2_m7ahb"]
+[ext_resource type="PackedScene" uid="uid://x3xdc4rkedl1" path="res://scenes/goblin.tscn" id="3_dwgg1"]
+[ext_resource type="PackedScene" uid="uid://de708y4pfgbf7" path="res://scenes/slime.tscn" id="4_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://c0jwreuq756ul" path="res://scenes/kill_zone.tscn" id="5_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://g78b88lwbsfg" path="res://scenes/coin.tscn" id="6_6sh32"]
+[ext_resource type="FontFile" uid="uid://bkcd5btx8hybf" path="res://assets/PixelOperator8.ttf" id="7_ejswk"]
+[ext_resource type="PackedScene" uid="uid://brtgsgr25expa" path="res://scenes/GoalZone.tscn" id="9_conm7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ru4tf"]
+distance = -53.0
+
+[node name="Node2D" type="Node2D" unique_id=976602341]
+
+[node name="GameManager" type="Node2D" parent="." unique_id=1565930577]
+unique_name_in_owner = true
+script = ExtResource("1_bbk5w")
+
+[node name="TileMapLayer" parent="." unique_id=1594093045 instance=ExtResource("1_wwpf4")]
+position = Vector2(-2, 0)
+
+[node name="CharacterBody2D" parent="." unique_id=1746243162 instance=ExtResource("2_m7ahb")]
+position = Vector2(14, -14.000001)
+
+[node name="CharacterBody2D2" parent="." unique_id=754151370 instance=ExtResource("3_dwgg1")]
+position = Vector2(299, -12)
+
+[node name="CharacterBody2D3" parent="." unique_id=1963848921 instance=ExtResource("4_ru4tf")]
+position = Vector2(242, -13)
+
+[node name="KillZone" parent="." unique_id=1472228893 instance=ExtResource("5_ru4tf")]
+position = Vector2(-5, 81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=544647668]
+position = Vector2(-2, 0)
+shape = SubResource("WorldBoundaryShape2D_ru4tf")
+
+[node name="coins" type="Node2D" parent="." unique_id=1409748928]
+
+[node name="Area2D" parent="coins" unique_id=483388369 instance=ExtResource("6_6sh32")]
+position = Vector2(422, 8)
+
+[node name="Area2D2" parent="coins" unique_id=739881634 instance=ExtResource("6_6sh32")]
+position = Vector2(198, -9)
+
+[node name="Area2D3" parent="coins" unique_id=1097941778 instance=ExtResource("6_6sh32")]
+position = Vector2(114, -10)
+
+[node name="Area2D4" parent="coins" unique_id=825918519 instance=ExtResource("6_6sh32")]
+position = Vector2(182, -10)
+
+[node name="Area2D5" parent="coins" unique_id=1068576503 instance=ExtResource("6_6sh32")]
+position = Vector2(566, -72)
+
+[node name="Area2D6" parent="coins" unique_id=1602900909 instance=ExtResource("6_6sh32")]
+position = Vector2(590, -71)
+
+[node name="Area2D7" parent="coins" unique_id=1683637029 instance=ExtResource("6_6sh32")]
+position = Vector2(785, -43)
+
+[node name="Area2D8" parent="coins" unique_id=1814337944 instance=ExtResource("6_6sh32")]
+position = Vector2(834, -44)
+
+[node name="Labels" type="Node2D" parent="." unique_id=1027366850]
+
+[node name="Label" type="Label" parent="Labels" unique_id=1114548915]
+offset_left = 49.0
+offset_top = -92.0
+offset_right = 221.0
+offset_bottom = -69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ejswk")
+theme_override_font_sizes/font_size = 11
+text = "Space to Jump"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=637690936]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 136.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("7_ejswk")
+theme_override_font_sizes/font_size = 16
+text = "Press S mid air to fly"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=495294935]
+offset_left = 291.0
+offset_top = -70.0
+offset_right = 421.0
+offset_bottom = -47.0
+theme_override_colors/font_color = Color(0.00039445335, 0.00039445335, 0.00039445335, 1)
+theme_override_fonts/font = ExtResource("7_ejswk")
+theme_override_font_sizes/font_size = 12
+text = "avoid enemies"
+
+[node name="Label4" type="Label" parent="Labels" unique_id=163910421]
+offset_left = 720.0
+offset_top = 14.0
+offset_right = 974.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ejswk")
+theme_override_font_sizes/font_size = 16
+text = "Falling means Death!"
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1924645799]
+
+[node name="GlideBar" type="ProgressBar" parent="HUD" unique_id=1564811645]
+custom_minimum_size = Vector2(10, 10)
+offset_right = 96.0
+offset_bottom = 27.0
+max_value = 0.5
+show_percentage = false
+
+[node name="GoalZone" parent="." unique_id=481766366 instance=ExtResource("9_conm7")]
+position = Vector2(1010, -54)
